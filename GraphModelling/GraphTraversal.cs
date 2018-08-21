@@ -349,8 +349,26 @@ namespace GraphModelling
         {
             #region pseudocode
             /*
-            Johnson(G)                1.                create G` where G`.V = G.V + { s},                    G`.E = G.E + ((s, u) for u in G.V), and
-                    weight(s, u) = 0 for u in G.V                2.                if Bellman - Ford(s) == False                    return "The input graph has a negative weight cycle"                else:                    for vertex v in G`.V:                        h(v) = distance(s, v) computed by Bellman - Ford                    for edge(u, v) in G`.E:                        weight`(u, v) = weight(u, v) + h(u) - h(v)                3.                    D = new matrix of distances initialized to infinity                    for vertex u in G.V:                        run Dijkstra(G, weight`, u) to compute distance`(u, v) for all v in G.V                        for each vertex v in G.V:                            D_(u, v) = distance`(u, v) + h(v) - h(u)                    return D
+            Johnson(G)
+                1.
+                create G` where G`.V = G.V + { s},
+                    G`.E = G.E + ((s, u) for u in G.V), and
+                    weight(s, u) = 0 for u in G.V
+                2.
+                if Bellman - Ford(s) == False
+                    return "The input graph has a negative weight cycle"
+                else:
+                    for vertex v in G`.V:
+                        h(v) = distance(s, v) computed by Bellman - Ford
+                    for edge(u, v) in G`.E:
+                        weight`(u, v) = weight(u, v) + h(u) - h(v)
+                3.
+                    D = new matrix of distances initialized to infinity
+                    for vertex u in G.V:
+                        run Dijkstra(G, weight`, u) to compute distance`(u, v) for all v in G.V
+                        for each vertex v in G.V:
+                            D_(u, v) = distance`(u, v) + h(v) - h(u)
+                    return D
 
            
             */

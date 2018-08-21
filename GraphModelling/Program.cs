@@ -31,6 +31,19 @@ namespace GraphModelling
             LoadGraph loader = new LoadGraph(g, @"data\GraphWithNoNegativeCycle.txt");
             var alg = new GraphTraversal();
             var result = alg.JohnsonFunction(g);
+            if (result != null)
+            {
+                foreach (var item in result)
+                {
+                    Tuple<GraphNode<int>, GraphNode<int>> keyset = item.Key;
+                    GraphNode<int> nodeFrom = keyset.Item1;
+                    GraphNode<int> nodeTo = keyset.Item2;
+                    Console.WriteLine("Shortest distance from Node: " + nodeFrom.Value + " To: " + nodeTo.Value + " = " + item.Value);
+
+                }
+
+            }
+            Console.WriteLine("Path found: ");
         }
 
         private static void FloydWarshallFunction()
